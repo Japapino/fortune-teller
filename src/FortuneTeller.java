@@ -21,23 +21,22 @@ public class FortuneTeller {
 		int numSiblings = input.nextInt();
 		input.nextLine();
 
-		/* For Testing
-		String firstName = "Stefan";
-		String lastName = "Murakami";
-		int numSiblings = 3;
-		int age = 28;
-		int birthMonth = 7;*/
 
-		System.out.println("What is your favorite ROYGBIV color? \n If you do not know type \"help\"");
-		String color = input.nextLine();
+		String color = ""; 
+		do {
+		System.out.println("What is your favorite ROYGBIV color? \n (If you do not know type \"help\")");
+		color = input.nextLine();
 		if (color.equalsIgnoreCase("help")) {
 			System.out.println("Red\nOrange \nYellow \nGreen \nBlue \nIndigo \nViolet");
-			System.out.println("What is your favorite ROYGBIV color?");
-			color = input.nextLine();
-		} else {
-			System.out.println("That is good color.");
-		}
+			System.out.println("What is your favorite ROYGBIV color?\n (If you do not know type \"help\")");
+			color = input.nextLine().toLowerCase();
+		} 
 
+		}while(color.toLowerCase().equals("help")||!color.equals("red")&&!color.equals("orange")&&!color.equals("yellow")
+				&!color.equals("green")&&!color.equals("blue")&&color.equals("indigo")&&!color.equals("violet"));
+		System.out.println("That is good color.");
+		
+		//Verify
 		System.out.println("Here is your info: \n" + firstName + " " + lastName + "\n" + age + ' ' + birthMonth + ' '
 				+ numSiblings + ' ' + color);
 		System.out.println("Is this correct?");
