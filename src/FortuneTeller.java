@@ -43,66 +43,75 @@ public class FortuneTeller {
 		String answer = input.nextLine().toLowerCase();
 
 		if (answer.equals("yes")) {
-
+			;
 			// Age & job
+			String retirement = "n/a";
 			if (age % 2 == 0) {
-				System.out.println("You will like your first job.");
+				retirement = " in " + age * 2.5 + "years";
 			} else {
-				System.out.println("You will hate your first job.");
+				retirement = "never";
 			}
 
 			// Siblings & Vacation home
-			System.out.print("Your vacation home will be in: ");
+
+			String vacaHome = "n/a";
 			if (numSiblings < 0) {
-				System.out.println("Wet cardboard box next to Giant Eagle, it will be a time share.");
+				vacaHome = "Wet cardboard box next to Giant Eagle, it will be a time share.";
 			} else if (numSiblings == 1) {
-				System.out.println("Klyuchevskaya Sopka, the highest peak in Siberia. \n In Russia, sweater wear you.");
+				vacaHome = "Klyuchevskaya Sopka, the highest peak in Siberia. \n In Russia, sweater wear you.";
 			} else if (numSiblings == 2) {
-				System.out.println("British Columbia, Canada");
+				vacaHome = "British Columbia, Canada";
 			} else {
-				System.out.println("The Acidalia Planitia on Mars, it is quite nice this time of year.");
+				vacaHome = "The Acidalia Planitia on Mars, it is quite nice this time of year.";
 			}
 
 			// color & transportation
+			String transport;
 			switch (color.toLowerCase()) {
 			case "red":
-				System.out.println("Panda powered rickshaw");
+				transport = "a Panda powered rickshaw";
 				break;
 			case "orange":
-				System.out.println("Fork lift");
+				transport = "a Fork lift";
 				break;
 			case "yellow":
-				System.out.println("Solar powered scooter");
+				transport = "a Solar powered scooter";
 				break;
 			case "green":
-				System.out.println("Portal gun");
+				transport = "a portal gun";
 				break;
 			case "blue":
-				System.out.println("Rickity rocket");
+				transport = "a rickity rocket";
 				break;
 			case "indigo":
-				System.out.println("Car");
+				transport = "Car";
 				break;
 			case "violet":
-				System.out.println("Carridge");
+				transport = "Carridge";
 				break;
 			default:
-				System.out.println("Your own 2 feet");
+				transport = "Your own 2 feet";
 
-			}//Color switch
+			}// Color switch
 
-			//Bank Balance
-			System.out.print("Your account balance is: ");
-			if (birthMonth<3) {
-				System.out.println(birthMonth+numSiblings*(2.3));
-			}else if (birthMonth<9 && birthMonth>3) {
-				System.out.println((birthMonth-1)*(10*birthMonth)+numSiblings*(2.3));
-			}else if (birthMonth>9 && birthMonth<12) {
-				System.out.println((birthMonth+1)*0.1+numSiblings*1.4);
-			}else {
-				System.out.println("You have no bank account, but you do have "+birthMonth+" friends.");
-			}//Bank balance
-			
+			// Bank Balance
+
+			Double bankBalance = 0.0;
+			if (birthMonth < 3) {
+				bankBalance = birthMonth + numSiblings * (2.31);
+			} else if (birthMonth < 9 && birthMonth > 3) {
+				bankBalance = (birthMonth - 1) * (10 * birthMonth) + numSiblings * (2.35);
+			} else if (birthMonth > 9 && birthMonth < 12) {
+				bankBalance = (birthMonth + 1) * 0.1 + numSiblings * 1.43;
+			} else {
+				System.out.println("You have no bank account, but you do have " + birthMonth + " friends.");
+			} // Bank balance
+
+			// Read Out
+			System.out.println("Well, well, well. Lucky you " + firstName + " of house " + lastName + ". "
+					+ "You will retire \n" + retirement + " with a bank balance of " + bankBalance
+					+ ", a vacation home\n in " + vacaHome + ", and travel \n" + "by " + transport + ".");
+
 		} else {
 			System.out.println("Then you have bad fortune for life. Good day.");
 		} // answer
