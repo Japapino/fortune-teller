@@ -3,29 +3,30 @@ import java.util.Scanner;
 public class FortuneTeller {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		/*
-		 * System.out.println("What is your first name?"); String firstName =
-		 * input.nextLine();
-		 * 
-		 * System.out.println("What is your last name?"); String lastName =
-		 * input.nextLine();
-		 * 
-		 * System.out.println("How old are you?"); int age = input.nextInt();
-		 * input.nextLine();
-		 * 
-		 * System.out.println("What month were you born?"); String birthMonth =
-		 * input.nextLine();
-		 * 
-		 * System.out.println("How many siblings do you have?"); int numSiblings =
-		 * input.nextInt(); input.nextLine();
-		 */
 
-		// For Testing
+		System.out.println("What is your first name?");
+		String firstName = input.nextLine();
+
+		System.out.println("What is your last name?");
+		String lastName = input.nextLine();
+
+		System.out.println("How old are you?");
+		int age = input.nextInt();
+		input.nextLine();
+
+		System.out.println("What month were you born?");
+		int birthMonth = input.nextInt();
+
+		System.out.println("How many siblings do you have?");
+		int numSiblings = input.nextInt();
+		input.nextLine();
+
+		/* For Testing
 		String firstName = "Stefan";
 		String lastName = "Murakami";
 		int numSiblings = 3;
 		int age = 28;
-		int birthMonth = 7;
+		int birthMonth = 7;*/
 
 		System.out.println("What is your favorite ROYGBIV color? \n If you do not know type \"help\"");
 		String color = input.nextLine();
@@ -47,9 +48,9 @@ public class FortuneTeller {
 			// Age & job
 			String retirement = "n/a";
 			if (age % 2 == 0) {
-				retirement = " in " + age * 2.5 + "years";
+				retirement = " in " + age * 2.5 + " years,";
 			} else {
-				retirement = "never";
+				retirement = "never, becuase in " + age * 2.1 + " years you will have been uploaded into the cloud,";
 			}
 
 			// Siblings & Vacation home
@@ -58,18 +59,18 @@ public class FortuneTeller {
 			if (numSiblings < 0) {
 				vacaHome = "Wet cardboard box next to Giant Eagle, it will be a time share.";
 			} else if (numSiblings == 1) {
-				vacaHome = "Klyuchevskaya Sopka, the highest peak in Siberia. \n In Russia, sweater wear you.";
+				vacaHome = "Klyuchevskaya Sopka, the highest peak in Siberia. \n (in Russia, sweater wear you)";
 			} else if (numSiblings == 2) {
 				vacaHome = "British Columbia, Canada";
 			} else {
-				vacaHome = "The Acidalia Planitia on Mars, it is quite nice this time of year.";
+				vacaHome = "The Acidalia Planitia on Mars, it is quite nice this time of year";
 			}
 
 			// color & transportation
 			String transport;
 			switch (color.toLowerCase()) {
 			case "red":
-				transport = "a Panda powered rickshaw";
+				transport = "a panda powered rickshaw";
 				break;
 			case "orange":
 				transport = "a Fork lift";
@@ -96,7 +97,7 @@ public class FortuneTeller {
 
 			// Bank Balance
 
-			Double bankBalance = 0.0;
+			Double bankBalance = 0.00;
 			if (birthMonth < 3) {
 				bankBalance = birthMonth + numSiblings * (2.31);
 			} else if (birthMonth < 9 && birthMonth > 3) {
