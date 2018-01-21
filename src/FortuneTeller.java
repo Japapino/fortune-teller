@@ -2,46 +2,84 @@ import java.util.Scanner;
 
 public class FortuneTeller {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); // initialize scanner named "input"
 
+		// first name block
 		System.out.println("What is your first name?");
 		String firstName = input.nextLine();
+		if (firstName.equalsIgnoreCase("quit")) { // if input == "quit", ends the program
+			System.out.println("No one likes a quitter...");
+			System.exit(0);
+		}
 
+		// last name block
 		System.out.println("What is your last name?");
 		String lastName = input.nextLine();
+		if (lastName.equalsIgnoreCase("quit")) {
+			System.out.println("No one likes a quitter...");
+			System.exit(0);
+		}
 
+		// age block
 		System.out.println("How old are you?");
-		int age = input.nextInt();
+		String ageIn = input.nextLine();
+		if (ageIn.equalsIgnoreCase("quit")) {
+			System.out.println("No one likes a quitter...");
+			System.exit(0);
+		}
+		int age = Integer.parseInt(ageIn);
 		input.nextLine();
 
-		System.out.println("What month were you born?");
-		int birthMonth = input.nextInt();
+		// birth month block
+		System.out.println(
+				"What month were you born? \n(express as a number value with 1 for January, 2 for February, etc.");
+		String birthMonthIn = input.nextLine();
+		input.nextLine();
+		if (birthMonthIn.equalsIgnoreCase("quit")) {
+			System.out.println("No one likes a quitter...");
+			System.exit(0);
+		}
+		int birthMonth = Integer.parseInt(birthMonthIn);
 
+		// siblings block
 		System.out.println("How many siblings do you have?");
-		int numSiblings = input.nextInt();
+		String numSiblingsIn = input.nextLine();
+
+		if (numSiblingsIn.equalsIgnoreCase("quit")) {
+			System.out.println("No one likes a quitter...");
+			System.exit(0);
+		}
+		int numSiblings = Integer.parseInt(numSiblingsIn);
 		input.nextLine();
 
+		// color block
 		String color = "";
+		System.out.println("What is your favorite ROYGBIV color? \n (If you do not know ROYGBIV type \"help\")");
+		color = input.nextLine();
+		color.toLowerCase();
 		do {
-			System.out.println("What is your favorite ROYGBIV color? \n (If you do not know type \"help\")");
-			color = input.nextLine();
-			if (color.equalsIgnoreCase("help")) {
+			if (color.equals("quit")) {
+				System.out.println("No one likes a quitter...");
+				System.exit(0);
+			} else if (color.equals("help")) {
 				System.out.println("Red\nOrange \nYellow \nGreen \nBlue \nIndigo \nViolet");
 				System.out.println("What is your favorite ROYGBIV color?\n (If you do not know type \"help\")");
 				color = input.nextLine().toLowerCase();
+			} else {
+
 			}
 
-		} while (color.toLowerCase().equals("help")
+		} while (color.equals("help") || color.equals("quit")
 				|| !color.equals("red") && !color.equals("orange") && !color.equals("yellow") & !color.equals("green")
 						&& !color.equals("blue") && color.equals("indigo") && !color.equals("violet"));
 		System.out.println("That is good color.");
 
 		// Verify
-		System.out.println("Here is your info: \n" + firstName + " " + lastName + "\n" + age + ' ' + birthMonth + ' '
-				+ numSiblings + ' ' + color);
-		System.out.println("Is this correct?");
+		System.out.println("Here is your info: \n" + firstName + " " + lastName + "\nAge: " + age + "\nBirthMonth: "
+				+ birthMonth + "\nNumber of Siblings: " + numSiblings + "\nColor choice: " + color + "\nIs this Correct?");
 		String answer = input.nextLine().toLowerCase();
 
+		//Claculations
 		if (answer.equals("yes")) {
 			;
 			// Age & job
